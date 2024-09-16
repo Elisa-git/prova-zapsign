@@ -26,8 +26,6 @@ class Document(models.Model):
     companyId = models.ForeignKey(Company, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
-        self.openId = 123
-        self.token = '123'
         self.externalId = settings.API_TOKEN
         super().save(*args, **kwargs)
 
@@ -41,6 +39,5 @@ class Signer(models.Model):
     documentId = models.ForeignKey(Document, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
-        self.token = '123'
         self.externalId = settings.API_TOKEN
         super().save(*args, **kwargs)

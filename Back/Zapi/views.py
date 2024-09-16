@@ -6,7 +6,6 @@ from rest_framework.response import Response
 from django.conf import settings
 from django.db import transaction
 import requests
-import datetime
 
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
