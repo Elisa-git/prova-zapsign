@@ -1,0 +1,81 @@
+<ngx-spinner
+  id="spinner-cadastro" bdColor="rgba(0, 0, 0, 0.8)" size="medium"
+  color="#ffffff" type="ball-8bits" [fullScreen]="false"
+>
+</ngx-spinner>
+
+<h3 class="m-3" *ngIf="!documentoRequest">Cadastrar Documentos</h3>
+<h3 class="m-3" *ngIf="documentoRequest">Editar Documentos</h3>
+<hr class="mb-4">
+
+<div class="container position-relative">
+
+  <form class="row g-3" [formGroup]="documentoForm">
+
+    <div class="mb-4">
+      <h5>Documento</h5>
+
+      <div class="row mt-4">
+        <div class="col">
+          <label class="form-label">Documento</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" (click)="abrirExplorerArquivos()">Escolher arquivo</span>
+            <input type="file" class="d-none" accept=".pdf" id="explorer-arquivo" (change)="adicionarArquivo($event)">
+            <input type="text" class="form-control" formControlName="arquivo" readonly>
+          </div>
+        </div>
+
+        <div class="col">
+          <label for="input-nome-documento" class="form-label">Nome Responsável</label>
+          <input type="text" id="input-nome-documento" formControlName="nomeResponsavel" class="form-control">
+        </div>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div>
+
+      <h5 class="mt-2">Signatários</h5>
+
+      @for (signatario of signatarios; track signatario; let i = $index) {
+        <div class="row mt-4">
+
+          <div class="col-5" [formGroup]="signatario">
+            <input formControlName="id" class="d-none">
+            <label for="input-nome" class="form-label">Nome</label>
+            <input type="text" formControlName="name" class="form-control" id="input-nome" required>
+          </div>
+
+          <div class="col-5" [formGroup]="signatario">
+            <label for="input-email" class="form-label">Email</label>
+            <div class="input-group">
+              <span class="input-group-text" id="input-email">&#64;</span>
+              <input type="text" formControlName="email" class="form-control" id="input-email" required>
+            </div>
+          </div>
+
+          <div class="col-2 mt-4 pt-2">
+            <button class="btn btn-danger text-white" (click)="removerSignatario(i)">
+              <i class="bi bi-person-dash"></i>
+              Remover
+            </button>
+          </div>
+
+        </div>
+      }
+    </div>
+
+  </form>
+
+
+</div>
+
+<hr class="mt-4">
+<div class="d-flex justify-content-end me-3">
+  <button class="btn btn-primary" (click)="adicionarSignatario()">Adicionar Signatário <i class="bi bi-person-add"></i></button>
+  <button class="btn btn-secondary ms-2" (click)="cancelar()">Cancelar</button>
+  <button class="btn btn-warning ms-2" (click)="limparFormulario()">Limpar</button>
+  <button class="btn btn-success ms-2" [disabled]="!documentoForm.valid" (click)="salvarDocumento()">Salvar</button>
+</div>

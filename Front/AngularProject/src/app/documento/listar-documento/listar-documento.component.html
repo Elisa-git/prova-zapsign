@@ -1,0 +1,33 @@
+<h3 class="m-3">Listar Documentos</h3>
+<hr class="mb-4">
+
+<div class="container position-relative">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Status</th>
+        <th scope="col">Data Criação</th>
+        <th scope="col">Criado Por</th>
+        <th scope="col">Empresa</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let documento of documentoResponse">
+      <tr>
+        <td scope="row">{{ documento.name }}</td>
+        <td scope="row">{{ documento.status }}</td>
+        <td scope="row">{{ documento.created_at | dateTime }}</td>
+        <td scope="row">{{ documento.created_by }}</td>
+        <td scope="row">{{ documento.company }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-info me-1" (click)="excluirDocumento(documento)"><i class="bi bi-trash3"></i></button>
+          <button type="button" class="btn btn-outline-info" (click)="editarDocumento(documento)"><i class="bi bi-pencil"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
