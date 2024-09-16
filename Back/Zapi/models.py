@@ -26,6 +26,7 @@ class Document(models.Model):
     companyId = models.ForeignKey(Company, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
+        self.openId = 123
         self.externalId = settings.API_TOKEN
         super().save(*args, **kwargs)
 

@@ -10,6 +10,7 @@ class CompanyTestCase(APITestCase):
         self.usuario = User.objects.create_superuser(username='admin', password='admin')
         self.url = reverse('Companies-list')
         self.client.force_authenticate(user = self.usuario)
+        
         self.company = Company.objects.create(
             name = 'Empresa Company',
             created_at = '2024-09-15T23:27:51.076371-03:00',

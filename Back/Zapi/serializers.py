@@ -12,10 +12,10 @@ class DocumentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Document
         fields = ['id', 'name', 'status', 'created_at', 'last_updated_at', 'created_by', 'company']
-    
+        
     def get_empresa(self, obj):
         return obj.get_empresa_display()
-
+    
 class SignerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Signer
