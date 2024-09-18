@@ -16,6 +16,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { StoreModule } from '@ngrx/store';
 import { documentosReducer } from './documento/store/documento.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CssElisaComponent } from './css-elisa/css-elisa.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HeaderComponent,
     ListarDocumentoComponent,
     CriarDocumentoComponent,
-    DateTimePipe
+    DateTimePipe,
+    CssElisaComponent
   ],
   imports: [
     BrowserModule,
