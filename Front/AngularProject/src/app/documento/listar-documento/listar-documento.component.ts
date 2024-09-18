@@ -5,6 +5,8 @@ import { EmpresaService } from '../services/empresa.service';
 import { DocumentoService } from '../services/documento.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { loadListaDocumentos } from '../store/documento.actions';
 
 @Component({
   selector: 'app-listar-documento',
@@ -19,10 +21,12 @@ export class ListarDocumentoComponent implements OnInit {
     private readonly documentosService: DocumentoService,
     private readonly empresaService: EmpresaService,
     private readonly toastr: ToastrService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly store: Store
   ) { }
 
   ngOnInit(): void {
+    this.store.dispatch(loadListaDocumentos());
     this.listarDocumentos();
     this.listarEmpresas();
   }

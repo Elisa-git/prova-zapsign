@@ -116,78 +116,78 @@ class ItemCreateView(APIView):
 
         try:
             with transaction.atomic():
-                # response_externo = requests.post(settings.API_ZAP_SIGN, json=request_externo, headers=header)
+                response_externo = requests.post(settings.API_ZAP_SIGN, json=request_externo, headers=header)
                 
-                response_externo = {
-                    "sandbox": False,
-                    "external_id": "",
-                    "open_id": 2,
-                    "token": "7b943a78-9ba4-4878-aa18-b56562646588",
-                    "name": "testeNOVO33.pdf",
-                    "folder_path": "/",
-                    "status": "pending",
-                    "rejected_reason": None,
-                    "lang": "pt-br",
-                    "original_file": "https://zapsign.s3.amazonaws.com/sandbox/dev/2024/9/api/df7a3740-5f27-4bad-88a7-bb3936619420.pdf?AWSAccessKeyId=AKIASUFZJ7JCTI2ZRGWX&Signature=BDIScazkj34e1B7e1Ni%2FSNd75yU%3D&Expires=1726326942",
-                    "signed_file": None,
-                    "extra_docs": [],
-                    "created_through": "api",
-                    "deleted": False,
-                    "deleted_at": None,
-                    "signed_file_only_finished": False,
-                    "disable_signer_emails": False,
-                    "brand_logo": "",
-                    "brand_primary_color": "",
-                    "created_at": "2024-09-14T14:15:42.562305Z",
-                    "last_update_at": "2024-09-14T14:15:42.562323Z",
-                    "created_by": {
-                        "email": "Elisa Mesquita"
-                    },
-                    "template": None,
-                    "signers": [
-                        {
-                            "external_id": "",
-                            "sign_url": "https://sandbox.app.zapsign.com.br/verificar/2b1f37f2-59e1-48c9-8ca6-c9fd1adad793",
-                            "token": "2b1f37f2-59e1-48c9-8ca6-c9fd1adad793",
-                            "status": "new",
-                            "name": "Christopher D R",
-                            "lock_name": False,
-                            "email": "sig344@natario.com",
-                            "lock_email": False,
-                            "hide_email": False,
-                            "blank_email": False,
-                            "phone_country": "55",
-                            "phone_number": "",
-                            "lock_phone": False,
-                            "hide_phone": False,
-                            "blank_phone": False,
-                            "times_viewed": 0,
-                            "last_view_at": None,
-                            "signed_at": None,
-                            "auth_mode": "assinaturaTela",
-                            "qualification": "",
-                            "require_selfie_photo": False,
-                            "require_document_photo": False,
-                            "geo_latitude": None,
-                            "geo_longitude": None,
-                            "redirect_link": "",
-                            "signature_image": None,
-                            "visto_image": None,
-                            "document_photo_url": "",
-                            "document_verse_photo_url": "",
-                            "selfie_photo_url": "",
-                            "selfie_photo_url2": ""
-                        }
-                    ],
-                    "answers": [],
-                    "auto_reminder": 0,
-                    "signature_report": None,
-                    "tsa_country": None,
-                    "use_timestamp": True
-                }
+                # response_externo = {
+                #     "sandbox": False,
+                #     "external_id": "",
+                #     "open_id": 2,
+                #     "token": "7b943a78-9ba4-4878-aa18-b56562646588",
+                #     "name": "testeNOVO33.pdf",
+                #     "folder_path": "/",
+                #     "status": "pending",
+                #     "rejected_reason": None,
+                #     "lang": "pt-br",
+                #     "original_file": "https://zapsign.s3.amazonaws.com/sandbox/dev/2024/9/api/df7a3740-5f27-4bad-88a7-bb3936619420.pdf?AWSAccessKeyId=AKIASUFZJ7JCTI2ZRGWX&Signature=BDIScazkj34e1B7e1Ni%2FSNd75yU%3D&Expires=1726326942",
+                #     "signed_file": None,
+                #     "extra_docs": [],
+                #     "created_through": "api",
+                #     "deleted": False,
+                #     "deleted_at": None,
+                #     "signed_file_only_finished": False,
+                #     "disable_signer_emails": False,
+                #     "brand_logo": "",
+                #     "brand_primary_color": "",
+                #     "created_at": "2024-09-14T14:15:42.562305Z",
+                #     "last_update_at": "2024-09-14T14:15:42.562323Z",
+                #     "created_by": {
+                #         "email": "Elisa Mesquita"
+                #     },
+                #     "template": None,
+                #     "signers": [
+                #         {
+                #             "external_id": "",
+                #             "sign_url": "https://sandbox.app.zapsign.com.br/verificar/2b1f37f2-59e1-48c9-8ca6-c9fd1adad793",
+                #             "token": "2b1f37f2-59e1-48c9-8ca6-c9fd1adad793",
+                #             "status": "new",
+                #             "name": "Christopher D R",
+                #             "lock_name": False,
+                #             "email": "sig344@natario.com",
+                #             "lock_email": False,
+                #             "hide_email": False,
+                #             "blank_email": False,
+                #             "phone_country": "55",
+                #             "phone_number": "",
+                #             "lock_phone": False,
+                #             "hide_phone": False,
+                #             "blank_phone": False,
+                #             "times_viewed": 0,
+                #             "last_view_at": None,
+                #             "signed_at": None,
+                #             "auth_mode": "assinaturaTela",
+                #             "qualification": "",
+                #             "require_selfie_photo": False,
+                #             "require_document_photo": False,
+                #             "geo_latitude": None,
+                #             "geo_longitude": None,
+                #             "redirect_link": "",
+                #             "signature_image": None,
+                #             "visto_image": None,
+                #             "document_photo_url": "",
+                #             "document_verse_photo_url": "",
+                #             "selfie_photo_url": "",
+                #             "selfie_photo_url2": ""
+                #         }
+                #     ],
+                #     "answers": [],
+                #     "auto_reminder": 0,
+                #     "signature_report": None,
+                #     "tsa_country": None,
+                #     "use_timestamp": True
+                # }
 
-                # if response_externo.status_code != 200:
-                #     return Response({"message": "Falha ao se comunicar com API externa"}, status=response_externo.status_code)
+                if response_externo.status_code != 200:
+                    return Response({"message": "Falha ao se comunicar com API externa"}, status=response_externo.status_code)
 
                 document = self.post_Document(response_externo)
                 print(f"CHEGUEI1 {document}")
